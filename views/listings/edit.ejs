@@ -1,0 +1,74 @@
+<% layout("/layout/boilerplate") %>
+
+  <h2 class="text-center my-4">Edit Your Listing</h2>
+
+  <form method="POST" action="/listing/<%= individualList._id %>?_method=PUT" novalidate class="needs-validation"
+    enctype="multipart/form-data">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" type="text" id="title" value="<%= individualList.title %>" required
+            class="form-control">
+          <div class="invalid-feedback">
+            Please choose a valid title.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" id="description" rows="3" required
+            class="form-control"><%= individualList.description %></textarea>
+          <div class="invalid-feedback">
+            Please choose short description.
+          </div>
+        </div>
+
+        <!-- Preview Container -->
+        <div class="mb-3">
+          <label class="form-label d-block">Current Image</label>
+          <img id="preview-image" src="<%= originalImageUrl %>" class="img-thumbnail"
+            style="max-width: 500px; height: 200px;" alt="Preview">
+        </div>
+
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload New Image</label>
+          <input name="listing[image]" type="file" id="image" class="form-control">
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price (₹)</label>
+            <input name="listing[price]" type="text" id="price" value="<%= individualList.price %>" required
+              class="form-control">
+            <div class="invalid-feedback">
+              Please choose a valid price.
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" type="text" id="country" value="<%= individualList.country %>" required
+              class="form-control">
+            <div class="invalid-feedback">
+              Please choose a valid country name.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input name="listing[location]" type="text" id="location" value="<%= individualList.location %>" required
+            class="form-control">
+          <div class="invalid-feedback">
+            Please choose a valid location.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100 mt-3 mb-3">Update Listing</button>
+
+      </div>
+    </div>
+  </form>

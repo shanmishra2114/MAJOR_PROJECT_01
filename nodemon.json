@@ -1,0 +1,5 @@
+{
+  "watch": ["app.js", "routes", "models", "middleware"], 
+  "ext": "js,json",
+  "exec": "npx kill-port 8080 && node app.js"
+}
